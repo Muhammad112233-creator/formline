@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formline — From First Sketch to Final Form</title>
+    <meta
+      name="description"
+      content="Formline is an AI ideation studio for industrial designers. Sketch, render, iterate and ship real products faster than ever."
+    />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ============ PRELOADER ============ -->
+    <div class="preloader" id="preloader">
+      <div class="preloader__inner">
+        <div class="preloader__mark" aria-hidden="true">F<span>*</span></div>
+        <div class="preloader__count"><span id="loadCount">0</span></div>
+        <div class="preloader__label">Bringing form to ideas</div>
+      </div>
+      <div class="preloader__bar"><span id="loadBar"></span></div>
+    </div>
+
+    <!-- ============ CUSTOM CURSOR ============ -->
+    <div class="cursor" id="cursor" aria-hidden="true">
+      <div class="cursor__dot"></div>
+      <div class="cursor__ring">
+        <span class="cursor__label" id="cursorLabel"></span>
+      </div>
+    </div>
+
+    <!-- ============ NAV ============ -->
+    <header class="nav" id="nav">
+      <div class="nav__inner">
+        <a href="#top" class="nav__logo" data-cursor="link"
+          >Formline<span class="nav__logo-star">*</span></a
+        >
+        <nav class="nav__links" id="navLinks">
+          <a href="#toolkit" class="nav__link" data-cursor="link">Product</a>
+          <a href="#iterate" class="nav__link" data-cursor="link">Workflows</a>
+          <a href="#stories" class="nav__link" data-cursor="link">Stories</a>
+          <a href="#faq" class="nav__link" data-cursor="link">FAQ</a>
+        </nav>
+        <div class="nav__actions">
+          <a href="#faq" class="btn btn--ghost" data-cursor="link"
+            ><span class="btn__label">Log in</span></a
+          >
+          <a href="#cta" class="btn btn--fill" data-cursor="link"
+            ><span class="btn__label">Get started</span></a
+          >
+        </div>
+        <button
+          class="nav__burger"
+          id="burger"
+          aria-label="Open menu"
+          data-cursor="link"
+        >
+          <span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile menu -->
+    <div class="mobmenu" id="mobmenu">
+      <nav class="mobmenu__links">
+        <a href="#toolkit" class="mobmenu__link">Product</a>
+        <a href="#iterate" class="mobmenu__link">Workflows</a>
+        <a href="#stories" class="mobmenu__link">Stories</a>
+        <a href="#faq" class="mobmenu__link">FAQ</a>
+        <a href="#cta" class="mobmenu__link mobmenu__link--accent"
+          >Get started</a
+        >
+      </nav>
+    </div>
+
+    <main id="top">
+      <!-- ============ HERO ============ -->
+      <section class="hero">
+        <div class="hero__bg-grid" aria-hidden="true"></div>
+        <div class="hero__inner">
+          <p class="hero__eyebrow reveal">
+            The ideation studio for industrial designers
+          </p>
+          <h1 class="hero__title split-title">Shape what&rsquo;s next</h1>
+          <p class="hero__sub reveal">
+            A faster road from your first rough sketch to a product you can
+            actually hold.
+          </p>
+          <div class="hero__actions reveal">
+            <a href="#toolkit" class="btn btn--fill btn--lg" data-cursor="link"
+              ><span class="btn__label">Start sketching</span></a
+            >
+            <a href="#stories" class="btn btn--line btn--lg" data-cursor="link"
+              ><span class="btn__label">Book a walkthrough</span></a
+            >
+          </div>
+        </div>
+
+        <!-- Draggable floating cards -->
+        <div class="hero__cards" id="heroCards">
+          <figure
+            class="hero-card"
+            data-cursor="drag"
+            style="--x: 6%; --y: 18%; --r: -7deg"
+          >
+            <img
+              src="assets/img/hero-shoe.png"
+              alt="Trail sneaker concept render"
+              draggable="false"
+            />
+            <figcaption>trail-03 / render</figcaption>
+          </figure>
+          <figure
+            class="hero-card"
+            data-cursor="drag"
+            style="--x: 76%; --y: 12%; --r: 5deg"
+          >
+            <img
+              src="assets/img/hero-chair.png"
+              alt="Lounge chair concept render"
+              draggable="false"
+            />
+            <figcaption>shell chair / v4</figcaption>
+          </figure>
+          <figure
+            class="hero-card"
+            data-cursor="drag"
+            style="--x: 70%; --y: 58%; --r: -4deg"
+          >
+            <img
+              src="assets/img/hero-scooter.png"
+              alt="Electric scooter concept render"
+              draggable="false"
+            />
+            <figcaption>commuter-x / wip</figcaption>
+          </figure>
+        </div>
+
+        <div class="hero__scroll" aria-hidden="true">
+          <span class="hero__scroll-text">Scroll</span>
+          <span class="hero__scroll-line"></span>
+        </div>
+      </section>
+
+      <!-- ============ LOGO MARQUEE ============ -->
+      <section class="brands">
+        <p class="brands__kicker reveal">
+          Trusted by teams who make real things
+        </p>
+        <div class="marquee" data-cursor="none">
+          <div class="marquee__track">
+            <span class="marquee__item">NORDVIK</span
+            ><span class="marquee__dot">*</span>
+            <span class="marquee__item">Atlas&amp;Co</span
+            ><span class="marquee__dot">*</span>
+            <span class="marquee__item">HELIOD</span
+            ><span class="marquee__dot">*</span>
+            <span class="marquee__item">Brightform</span
+            ><span class="marquee__dot">*</span>
+            <span class="marquee__item">KESTREL</span
+            ><span class="marquee__dot">*</span>
+            <span class="marquee__item">Oru&nbsp;Labs</span
+            ><span class="marquee__dot">*</span>
+            <span class="marquee__item">PALEBLUE</span
+            ><span class="marquee__dot">*</span>
+            <span class="marquee__item">Vantar</span
+            ><span class="marquee__dot">*</span>
+            <!-- duplicate for seamless loop -->
+            <span class="marquee__item">NORDVIK</span
+            ><span class="marquee__dot">*</span>
+            <span class="marquee__item">Atlas&amp;Co</span
+            ><span class="marquee__dot">*</span>
+            <span class="marquee__item">HELIOD</span
+            ><span class="marquee__dot">*</span>
+            <span class="marquee__item">Brightform</span
+            ><span class="marquee__dot">*</span>
+            <span class="marquee__item">KESTREL</span
+            ><span class="marquee__dot">*</span>
+            <span class="marquee__item">Oru&nbsp;Labs</span
+            ><span class="marquee__dot">*</span>
+            <span class="marquee__item">PALEBLUE</span
+            ><span class="marquee__dot">*</span>
+            <span class="marquee__item">Vantar</span
+            ><span class="marquee__dot">*</span>
+          </div>
+        </div>
+        <div class="marquee marquee--reverse" data-cursor="none">
+          <div class="marquee__track">
+            <span class="marquee__item">Studio&nbsp;Ferro</span
+            ><span class="marquee__dot">*</span>
+            <span class="marquee__item">COPPERLINE</span
+            ><span class="marquee__dot">*</span>
+            <span class="marquee__item">June&nbsp;Motors</span
+            ><span class="marquee__dot">*</span>
+            <span class="marquee__item">MONO</span
+            ><span class="marquee__dot">*</span>
+            <span class="marquee__item">Fjellhus</span
+            ><span class="marquee__dot">*</span>
+            <span class="marquee__item">TILDE</span
+            ><span class="marquee__dot">*</span>
+            <span class="marquee__item">Wren&nbsp;&amp;&nbsp;Field</span
+            ><span class="marquee__dot">*</span>
+            <span class="marquee__item">ARQO</span
+            ><span class="marquee__dot">*</span>
+            <!-- duplicate for seamless loop -->
+            <span class="marquee__item">Studio&nbsp;Ferro</span
+            ><span class="marquee__dot">*</span>
+            <span class="marquee__item">COPPERLINE</span
+            ><span class="marquee__dot">*</span>
+            <span class="marquee__item">June&nbsp;Motors</span
+            ><span class="marquee__dot">*</span>
+            <span class="marquee__item">MONO</span
+            ><span class="marquee__dot">*</span>
+            <span class="marquee__item">Fjellhus</span
+            ><span class="marquee__dot">*</span>
+            <span class="marquee__item">TILDE</span
+            ><span class="marquee__dot">*</span>
+            <span class="marquee__item">Wren&nbsp;&amp;&nbsp;Field</span
+            ><span class="marquee__dot">*</span>
+            <span class="marquee__item">ARQO</span
+            ><span class="marquee__dot">*</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ TOOLKIT ============ -->
+      <section class="toolkit" id="toolkit">
+        <div class="section-head">
+          <h2 class="split-title">Your ideation toolkit</h2>
+          <p class="section-head__sub reveal">
+            The messy middle of a project is where good ideas usually die.
+            Formline keeps them alive — from loose sketch, through variations,
+            all the way to something buildable.
+          </p>
+          <div class="section-head__actions reveal">
+            <a href="#iterate" class="btn btn--line" data-cursor="link"
+              ><span class="btn__label">Learn more</span></a
+            >
+            <a href="#cta" class="btn btn--fill" data-cursor="link"
+              ><span class="btn__label">Get started</span></a
+            >
+          </div>
+        </div>
+
+        <div
+          class="toolkit__tabs reveal"
+          role="tablist"
+          aria-label="Toolkit steps"
+        >
+          <button
+            class="toolkit__tab is-active"
+            data-tab="0"
+            data-cursor="link"
+            role="tab"
+          >
+            Sketch
+          </button>
+          <button
+            class="toolkit__tab"
+            data-tab="1"
+            data-cursor="link"
+            role="tab"
+          >
+            Render
+          </button>
+          <button
+            class="toolkit__tab"
+            data-tab="2"
+            data-cursor="link"
+            role="tab"
+          >
+            Iterate
+          </button>
+          <button
+            class="toolkit__tab"
+            data-tab="3"
+            data-cursor="link"
+            role="tab"
+          >
+            Make it real
+          </button>
+        </div>
+
+        <!-- Fake app UI -->
+        <div class="app reveal" id="appUI">
+          <!-- Left: layers -->
+          <aside class="app__panel app__layers">
+            <div class="app__panel-title">Layers</div>
+            <div class="app-layer" data-layer="3">
+              <span
+                class="app-layer__thumb"
+                style="
+                  background-image: url(&quot;assets/img/tool-render.png&quot;);
+                "
+              ></span>
+              <span class="app-layer__name">Render</span>
+              <span class="app-layer__meta">100%</span>
+            </div>
+            <div class="app-layer" data-layer="2">
+              <span
+                class="app-layer__thumb"
+                style="
+                  background-image: url(&quot;assets/img/tool-variants.png&quot;);
+                "
+              ></span>
+              <span class="app-layer__name">Color block</span>
+              <span class="app-layer__meta">100%</span>
+            </div>
+            <div class="app-layer" data-layer="1">
+              <span
+                class="app-layer__thumb"
+                style="
+                  background-image: url(&quot;assets/img/tool-sketch.png&quot;);
+                "
+              ></span>
+              <span class="app-layer__name">Sketch</span>
+              <span class="app-layer__meta">100%</span>
+            </div>
+            <div class="app__panel-title app__panel-title--gap">Assets</div>
+            <div class="app__assets">
+              <span
+                style="
+                  background-image: url(&quot;assets/img/hero-shoe.png&quot;);
+                "
+              ></span>
+              <span
+                style="
+                  background-image: url(&quot;assets/img/hero-chair.png&quot;);
+                "
+              ></span>
+              <span
+                style="
+                  background-image: url(&quot;assets/img/hero-scooter.png&quot;);
+                "
+              ></span>
+            </div>
+          </aside>
+
+          <!-- Center: canvas -->
+          <div class="app__canvas">
+            <div class="app__canvas-bar">
+              <span class="app__dot"></span><span class="app__dot"></span
+              ><span class="app__dot"></span>
+              <span class="app__canvas-name">headphones-v2.form</span>
+            </div>
+            <div class="app__stage" id="appStage">
+              <img
+                src="assets/img/tool-sketch.png"
+                class="app__frame is-active"
+                alt="Headphone sketch"
+                data-frame="0"
+              />
+              <img
+                src="assets/img/tool-render.png"
+                class="app__frame"
+                alt="Headphone render"
+                data-frame="1"
+              />
+              <img
+                src="assets/img/tool-variants.png"
+                class="app__frame"
+                alt="Headphone color variants"
+                data-frame="2"
+              />
+              <img
+                src="assets/img/tool-render.png"
+                class="app__frame"
+                alt="Final headphone render"
+                data-frame="3"
+              />
+              <div class="app__badge" id="appBadge">Ready for tooling</div>
+            </div>
+          </div>
+
+          <!-- Right: prompt -->
+          <aside class="app__panel app__prompt">
+            <div class="app__panel-title">Prompt</div>
+            <div class="app__prompt-box">
+              <span class="app__prompt-text" id="promptText"></span
+              ><span class="app__caret"></span>
+            </div>
+            <div class="app__chips">
+              <span class="chip" data-cursor="link">Change&hellip;</span>
+              <span class="chip" data-cursor="link">Make&hellip;</span>
+              <span class="chip" data-cursor="link">Remove&hellip;</span>
+              <span class="chip" data-cursor="link">Add&hellip;</span>
+              <span class="chip" data-cursor="link">Imagine&hellip;</span>
+            </div>
+            <div class="app__panel-title app__panel-title--gap">Actions</div>
+            <button class="app__action" data-cursor="link">New view</button>
+            <button class="app__action" data-cursor="link">
+              Variate form &amp; color
+            </button>
+            <button
+              class="app__action app__action--accent"
+              data-cursor="link"
+              id="appGenerate"
+            >
+              Generate
+            </button>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ============ ITERATE ============ -->
+      <section class="iterate" id="iterate">
+        <div class="section-head">
+          <h2 class="split-title">Explore every direction</h2>
+          <p class="section-head__sub reveal">
+            Move faster at every step of ideation without flattening the ideas
+            that made it yours.
+          </p>
+        </div>
+
+        <div class="iterate__grid">
+          <!-- Animate card -->
+          <article class="icard reveal" data-cursor="link">
+            <div class="icard__tag">Animate</div>
+            <div class="icard__media">
+              <img
+                src="assets/img/feature-lamp.png"
+                alt="Sculptural lamp render"
+                class="icard__glow"
+              />
+            </div>
+            <div class="icard__prompt">
+              <span id="animPrompt"
+                >Make the lamp glow, then slowly rotate</span
+              >
+              <button class="icard__go" data-cursor="link">Generate</button>
+            </div>
+          </article>
+
+          <!-- Palette card -->
+          <article class="icard reveal" data-cursor="link">
+            <div class="icard__tag">Palette</div>
+            <div class="icard__media">
+              <img
+                src="assets/img/tool-variants.png"
+                alt="Headphone color variants"
+              />
+            </div>
+            <div class="icard__swatches" id="swatches">
+              <span
+                class="swatch is-active"
+                style="--c: #9fb28a"
+                data-cursor="link"
+              ></span>
+              <span
+                class="swatch"
+                style="--c: #cf7a4e"
+                data-cursor="link"
+              ></span>
+              <span
+                class="swatch"
+                style="--c: #2e3a55"
+                data-cursor="link"
+              ></span>
+              <span
+                class="swatch"
+                style="--c: #e9e2d4"
+                data-cursor="link"
+              ></span>
+              <span class="icard__hint">Change</span>
+            </div>
+          </article>
+
+          <!-- New view card -->
+          <article class="icard reveal" data-cursor="link">
+            <div class="icard__tag">New view</div>
+            <div class="icard__media icard__media--tilt" id="tiltMedia">
+              <img
+                src="assets/img/hero-shoe.png"
+                alt="Sneaker render"
+                id="tiltImg"
+              />
+            </div>
+            <div class="icard__angles" id="angles">
+              <button class="angle is-active" data-cursor="link">0&deg;</button>
+              <button class="angle" data-cursor="link">45&deg;</button>
+              <button class="angle" data-cursor="link">90&deg;</button>
+              <button class="angle" data-cursor="link">180&deg;</button>
+              <button class="angle" data-cursor="link">270&deg;</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ STORIES ============ -->
+      <section class="stories" id="stories">
+        <div class="section-head">
+          <h2 class="split-title">From screen to street</h2>
+          <p class="section-head__sub reveal">
+            How real teams take a Formline board and turn it into things people
+            ride, wear and live with.
+          </p>
+          <div class="section-head__actions reveal">
+            <a href="#cta" class="btn btn--line" data-cursor="link"
+              ><span class="btn__label">Book a walkthrough</span></a
+            >
+          </div>
+        </div>
+
+        <div class="stories__grid">
+          <article
+            class="story reveal"
+            data-cursor="watch"
+            data-title="Two wheels, one weekend"
+            data-desc="A safety gear studio took a helmet from napkin sketch to wind-tunnel-ready shell in five days. Here's the whole messy process, unedited."
+            data-img="assets/img/case-helmet.png"
+            data-length="06:12"
+          >
+            <div class="story__media">
+              <img
+                src="assets/img/case-helmet.png"
+                alt="Helmet prototype in studio"
+              />
+            </div>
+            <div class="story__meta">
+              <span class="story__play" aria-hidden="true"></span>
+              <div>
+                <h3 class="story__title">Two wheels, one weekend</h3>
+                <p class="story__desc">
+                  A helmet, from napkin sketch to wind-tunnel shell in five
+                  days.
+                </p>
+              </div>
+              <span class="story__len">06:12</span>
+            </div>
+          </article>
+
+          <article
+            class="story reveal"
+            data-cursor="watch"
+            data-title="The midsole diaries"
+            data-desc="A footwear lab uses Formline to trial forty midsole geometries before a single one gets printed. Their lead designer walks through the board."
+            data-img="assets/img/case-footwear.png"
+            data-length="05:47"
+          >
+            <div class="story__media">
+              <img
+                src="assets/img/case-footwear.png"
+                alt="Footwear lab prototype work"
+              />
+            </div>
+            <div class="story__meta">
+              <span class="story__play" aria-hidden="true"></span>
+              <div>
+                <h3 class="story__title">The midsole diaries</h3>
+                <p class="story__desc">
+                  Forty geometries trialled before a single print.
+                </p>
+              </div>
+              <span class="story__len">05:47</span>
+            </div>
+          </article>
+
+          <article
+            class="story reveal"
+            data-cursor="watch"
+            data-title="Clay, tape and prompts"
+            data-desc="Inside an automotive studio where clay modellers and Formline boards sit three metres apart — and why that distance matters."
+            data-img="assets/img/case-auto.png"
+            data-length="07:03"
+          >
+            <div class="story__media">
+              <img
+                src="assets/img/case-auto.png"
+                alt="Automotive clay model studio"
+              />
+            </div>
+            <div class="story__meta">
+              <span class="story__play" aria-hidden="true"></span>
+              <div>
+                <h3 class="story__title">Clay, tape and prompts</h3>
+                <p class="story__desc">
+                  Where clay modellers and AI boards sit three metres apart.
+                </p>
+              </div>
+              <span class="story__len">07:03</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ FEATURES BENTO ============ -->
+      <section class="features" id="features">
+        <div class="section-head">
+          <h2 class="split-title">Built for every kind of maker</h2>
+          <div class="section-head__actions reveal">
+            <a href="#toolkit" class="btn btn--line" data-cursor="link"
+              ><span class="btn__label">See the toolkit</span></a
+            >
+          </div>
+        </div>
+
+        <div class="bento">
+          <article class="bcard bcard--wide reveal" data-cursor="link">
+            <div class="bcard__media bcard__media--swap">
+              <img
+                src="assets/img/tool-sketch.png"
+                alt="Headphone sketch"
+                class="bcard__img-a"
+              />
+              <img
+                src="assets/img/tool-render.png"
+                alt="Headphone render"
+                class="bcard__img-b"
+              />
+            </div>
+            <h3>Edit anything with plain words</h3>
+            <p>
+              Big moves or tiny nudges — describe the change the way you'd say
+              it across the desk.
+            </p>
+          </article>
+
+          <article class="bcard reveal" data-cursor="link">
+            <div class="bcard__media">
+              <img
+                src="assets/img/feature-3d.png"
+                alt="3D viewport with half-rendered delivery van"
+              />
+            </div>
+            <h3>Drop in your 3D models</h3>
+            <p>Swap materials, colors and scenes on any model, instantly.</p>
+          </article>
+
+          <article class="bcard reveal" data-cursor="link">
+            <div class="bcard__media">
+              <img src="assets/img/feature-lamp.png" alt="Lamp render" />
+            </div>
+            <h3>Direct short clips</h3>
+            <p>Give your object motion and a place in the world.</p>
+          </article>
+
+          <article class="bcard reveal" data-cursor="link">
+            <div class="bcard__media">
+              <img
+                src="assets/img/feature-print.png"
+                alt="Hands holding a 3D printed prototype"
+              />
+            </div>
+            <h3>Hold what you make</h3>
+            <p>Export watertight geometry, ready for print or tooling.</p>
+          </article>
+
+          <article class="bcard bcard--wide reveal" data-cursor="link">
+            <div class="bcard__media bcard__media--zoom">
+              <img src="assets/img/tool-render.png" alt="Detailed render" />
+            </div>
+            <h3>Enhance the details</h3>
+            <p>
+              One pass to sharpen stitching, texture and edge highlights before
+              it goes in the deck.
+            </p>
+          </article>
+
+          <article class="bcard reveal" data-cursor="link">
+            <div class="bcard__media">
+              <img src="assets/img/tool-variants.png" alt="Color variants" />
+            </div>
+            <h3>Version without fear</h3>
+            <p>Every branch is kept. Nothing you try costs you the original.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ REAL WORLD ============ -->
+      <section class="realworld">
+        <div class="realworld__copy">
+          <h2 class="split-title">Made for the real world</h2>
+          <p class="reveal">
+            Pixels are the easy part. Formline is built for the moment a concept
+            has to survive contact with materials, budgets and Mondays.
+          </p>
+          <div class="section-head__actions reveal">
+            <a href="#stories" class="btn btn--line" data-cursor="link"
+              ><span class="btn__label">Read the stories</span></a
+            >
+            <a href="#cta" class="btn btn--fill" data-cursor="link"
+              ><span class="btn__label">Get started</span></a
+            >
+          </div>
+        </div>
+        <div class="realworld__media reveal" data-cursor="drag">
+          <img
+            src="assets/img/case-auto.png"
+            alt="Automotive studio"
+            class="realworld__img realworld__img--a"
+            data-speed="0.06"
+          />
+          <img
+            src="assets/img/hero-shoe.png"
+            alt="Sneaker render"
+            class="realworld__img realworld__img--b"
+            data-speed="-0.05"
+          />
+        </div>
+      </section>
+
+      <!-- ============ FAQ ============ -->
+      <section class="faq" id="faq">
+        <div class="faq__head">
+          <h2 class="split-title">Questions, answered</h2>
+          <p class="reveal">
+            Can't find yours? Write to us — a person replies, usually the same
+            day.
+          </p>
+          <a href="#cta" class="btn btn--line reveal" data-cursor="link"
+            ><span class="btn__label">Contact us</span></a
+          >
+        </div>
+        <div class="faq__list">
+          <details class="faq__item reveal" data-cursor="link">
+            <summary>Is there a free plan?</summary>
+            <div class="faq__body">
+              <p>
+                Yes. The Sketchbook plan is free for good, no card needed. It's
+                plenty for testing whether Formline fits how you already work.
+              </p>
+            </div>
+          </details>
+          <details class="faq__item reveal" data-cursor="link">
+            <summary>Who owns what I make here?</summary>
+            <div class="faq__body">
+              <p>
+                You do. Full stop. Your sketches, prompts, boards and outputs
+                are yours on every plan, and on paid plans nothing you make is
+                ever used to improve our models.
+              </p>
+            </div>
+          </details>
+          <details class="faq__item reveal" data-cursor="link">
+            <summary>Can my whole studio share one workspace?</summary>
+            <div class="faq__body">
+              <p>
+                That's the idea. Admins and editors take paid seats; reviewers
+                who only need to look and comment are free, however many you
+                invite.
+              </p>
+            </div>
+          </details>
+          <details class="faq__item reveal" data-cursor="link">
+            <summary>How does billing work for teams?</summary>
+            <div class="faq__body">
+              <p>
+                One invoice, handled by your admin. All paid seats land in the
+                same billing cycle, and free reviewer seats never touch the
+                bill.
+              </p>
+            </div>
+          </details>
+          <details class="faq__item reveal" data-cursor="link">
+            <summary>Can I switch from monthly to yearly?</summary>
+            <div class="faq__body">
+              <p>
+                Any time. Your admin flips it in billing settings and the annual
+                rate kicks in at the next cycle.
+              </p>
+            </div>
+          </details>
+          <details class="faq__item reveal" data-cursor="link">
+            <summary>What file types can I bring in?</summary>
+            <div class="faq__body">
+              <p>
+                Photos, scans of paper sketches, PNG, JPG, layered files, plus
+                OBJ, STL and STEP on the 3D side. If your studio lives in
+                something odd, tell us — we probably want to support it.
+              </p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- ============ CTA ============ -->
+      <section class="cta" id="cta">
+        <h2 class="split-title cta__title">
+          Sketch it Monday.<br />Hold it Friday.
+        </h2>
+        <div class="cta__actions reveal">
+          <a href="#top" class="btn btn--fill btn--lg" data-cursor="link"
+            ><span class="btn__label">Get started</span></a
+          >
+          <a href="#stories" class="btn btn--line btn--lg" data-cursor="link"
+            ><span class="btn__label">Book a walkthrough</span></a
+          >
+        </div>
+      </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+      <div class="footer__cols">
+        <div class="footer__col footer__col--brand">
+          <a href="#top" class="nav__logo" data-cursor="link"
+            >Formline<span class="nav__logo-star">*</span></a
+          >
+          <p>An ideation studio for people who make real things.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Product</h4>
+          <a href="#toolkit" data-cursor="link">Toolkit</a>
+          <a href="#iterate" data-cursor="link">Workflows</a>
+          <a href="#features" data-cursor="link">Features</a>
+        </div>
+        <div class="footer__col">
+          <h4>Company</h4>
+          <a href="#stories" data-cursor="link">Stories</a>
+          <a href="#faq" data-cursor="link">FAQ</a>
+          <a href="#cta" data-cursor="link">Contact</a>
+        </div>
+        <div class="footer__col">
+          <h4>Elsewhere</h4>
+          <a href="#" data-cursor="link">Instagram</a>
+          <a href="#" data-cursor="link">YouTube</a>
+          <a href="#" data-cursor="link">LinkedIn</a>
+        </div>
+      </div>
+      <div class="footer__mark" aria-hidden="true">FORMLINE</div>
+      <div class="footer__legal">
+        <span
+          >&copy; <span id="year"></span> Formline. A fictional demo
+          template.</span
+        >
+        <span>Made by hand, mostly at night.</span>
+      </div>
+    </footer>
+
+    <!-- ============ STORY MODAL ============ -->
+    <div class="modal" id="modal" aria-hidden="true">
+      <div class="modal__backdrop" id="modalBackdrop"></div>
+      <div class="modal__card" role="dialog" aria-modal="true">
+        <div class="modal__player">
+          <img src="" alt="" id="modalImg" />
+          <span class="modal__playbtn" aria-hidden="true"></span>
+          <span class="modal__time" id="modalTime">00:00</span>
+        </div>
+        <div class="modal__info">
+          <h3 id="modalTitle"></h3>
+          <p id="modalDesc"></p>
+          <button class="btn btn--line" id="modalClose" data-cursor="link">
+            <span class="btn__label">Close</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
