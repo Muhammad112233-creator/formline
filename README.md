@@ -72,7 +72,7 @@ MIT. Use it commercially, modify it, ship it. Attribution appreciated,
 never required. All imagery in `assets/img/` was generated for this
 template; the brand names in the marquee are fictional.
 
-<div align="centr">
+<div align="center">
 
 If this template is useful, please leave a star ⭐ on GitHub to show your support!
 
